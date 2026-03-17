@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="entry-screen" id="entryScreen">
+      <div class="entry-card">
+        <h1>Lexi<span class="accent">.</span></h1>
+        <p>Developer & IT Enthusiast</p>
+        <button class="entry-btn" id="entryBtn">Click to Enter</button>
+      </div>
+    </div>
+
     <video class="bg-video" id="bgVideo" autoplay loop muted playsinline>
       <source src="Boku No Sensou.mp4" type="video/mp4" />
     </video>
@@ -147,6 +155,8 @@
       const muteBtn = document.getElementById("muteToggle");
       const heroMute = document.getElementById("heroMuteToggle");
       const video = document.getElementById("bgVideo");
+      const entryScreen = document.getElementById("entryScreen");
+      const entryBtn = document.getElementById("entryBtn");
 
       video.volume = 0.5;
 
@@ -156,10 +166,23 @@
       html.setAttribute("data-theme", savedTheme);
       toggle.textContent = savedTheme === "dark" ? "☀️" : "🌙";
       heroTheme.textContent = savedTheme === "dark" ? "☀️ Theme" : "Theme 🌙";
+      entryScreen.style.background =
+        savedTheme === "dark" ? "#0d0d1a" : "#dbe9ff";
+      entryScreen.querySelector("p").style.color =
+        savedTheme === "dark" ? "#9999bb" : "#555577";
+      entryScreen.querySelector("h1").style.color =
+        savedTheme === "dark" ? "#ffffff" : "#1a1a2e";
 
       video.muted = savedMute;
       muteBtn.textContent = savedMute ? "🔇" : "🔊";
       heroMute.textContent = savedMute ? "🔇 Unmute" : "🔊 Mute";
+
+      entryBtn.addEventListener("click", () => {
+        video.muted = savedMute;
+        video.play();
+        entryScreen.style.opacity = "0";
+        setTimeout(() => (entryScreen.style.display = "none"), 600);
+      });
 
       function toggleTheme() {
         const isDark = html.getAttribute("data-theme") === "dark";
