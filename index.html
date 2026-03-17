@@ -158,10 +158,10 @@
       const entryScreen = document.getElementById("entryScreen");
       const entryBtn = document.getElementById("entryBtn");
 
-      video.volume = 0.5;
+      video.volume = 0.25;
 
       const savedTheme = localStorage.getItem("theme") || "light";
-      const savedMute = localStorage.getItem("muted") !== "false";
+      const savedMute = localStorage.getItem("muted") !== "true";
 
       html.setAttribute("data-theme", savedTheme);
       toggle.textContent = savedTheme === "dark" ? "☀️" : "🌙";
