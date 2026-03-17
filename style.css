@@ -178,6 +178,7 @@ main {
 
 .hero-btn {
   height: 100px;
+  width: 275px;
   padding: 0 1.5rem;
   border-radius: 50px;
   border: 1.5px solid var(--card-border);
