@@ -22,7 +22,7 @@
     <main>
       <section class="card hero-card">
         <div class="avatar-row">
-          <button class="hero-btn" id="heroMuteToggle">🔇 Mute</button>
+          <button class="hero-btn" id="heroMuteToggle">🔇 Unmute</button>
           <img
             src="https://github.com/sk3tchedlexi.png"
             alt="Lexi's GitHub profile picture"
@@ -158,9 +158,9 @@
 
       function toggleMute() {
         video.muted = !video.muted;
-        const icon = video.muted ? "🔇" : "🔊";
+        const icon = video.muted ? "🔊" : "🔇";
         muteBtn.textContent = icon;
-        heroMute.textContent = video.muted ? "🔇 Mute" : "🔊 Unmute";
+        heroMute.textContent = video.muted ? "🔇 Unmute" : "🔊 Mute";
       }
 
       toggle.addEventListener("click", toggleTheme);
