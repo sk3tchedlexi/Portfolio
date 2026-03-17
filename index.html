@@ -147,20 +147,33 @@
       const muteBtn = document.getElementById("muteToggle");
       const heroMute = document.getElementById("heroMuteToggle");
       const video = document.getElementById("bgVideo");
+
       video.volume = 0.5;
+
+      const savedTheme = localStorage.getItem("theme") || "light";
+      const savedMute = localStorage.getItem("muted") !== "false";
+
+      html.setAttribute("data-theme", savedTheme);
+      toggle.textContent = savedTheme === "dark" ? "☀️" : "🌙";
+      heroTheme.textContent = savedTheme === "dark" ? "☀️ Theme" : "Theme 🌙";
+
+      video.muted = savedMute;
+      muteBtn.textContent = savedMute ? "🔇" : "🔊";
+      heroMute.textContent = savedMute ? "🔇 Unmute" : "🔊 Mute";
 
       function toggleTheme() {
         const isDark = html.getAttribute("data-theme") === "dark";
-        html.setAttribute("data-theme", isDark ? "light" : "dark");
-        const icon = isDark ? "🌙" : "☀️";
-        toggle.textContent = icon;
-        heroTheme.textContent = isDark ? "🌙 Theme" : "☀️ Theme";
+        const newTheme = isDark ? "light" : "dark";
+        html.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        toggle.textContent = isDark ? "🌙" : "☀️";
+        heroTheme.textContent = isDark ? "Theme 🌙" : "☀️ Theme";
       }
 
       function toggleMute() {
         video.muted = !video.muted;
-        const icon = video.muted ? "🔊" : "🔇";
-        muteBtn.textContent = icon;
+        localStorage.setItem("muted", video.muted);
+        muteBtn.textContent = video.muted ? "🔇" : "🔊";
         heroMute.textContent = video.muted ? "🔇 Unmute" : "🔊 Mute";
       }
 
