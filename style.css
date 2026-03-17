@@ -11,13 +11,13 @@
 :root {
   --accent: #3b82f6;
   --accent-hover: #2563eb;
-  --bg-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-  --card-bg: rgba(255, 255, 255, 0.45);
+  --card-bg: rgba(255, 255, 255, 0.15);
   --card-border: rgba(255, 255, 255, 0.6);
   --card-shadow: rgba(0, 0, 0, 0.1);
   --text: #1a1a2e;
   --text-muted: #555577;
   --body-bg: #dbe9ff;
+  --overlay-color: rgba(219, 233, 255, 0.5);
   --toggle-bg: rgba(255, 255, 255, 0.5);
   --btn-outline-border: #3b82f6;
   --btn-outline-text: #3b82f6;
@@ -31,6 +31,7 @@
   --text: #e8e8f0;
   --text-muted: #9999bb;
   --body-bg: #0d0d1a;
+  --overlay-color: rgba(13, 13, 26, 0.6);
   --toggle-bg: rgba(20, 20, 40, 0.6);
   --btn-outline-border: #60a5fa;
   --btn-outline-text: #60a5fa;
@@ -41,26 +42,34 @@ body {
   font-family: "JetBrains Mono", monospace;
   color: var(--text);
   min-height: 100vh;
-  background-color: var(--body-bg);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  overflow-x: hidden;
+  transition: color 0.3s ease;
 }
 
-.bg {
+.bg-video {
   position: fixed;
-  inset: 0;
-  background-color: var(--body-bg);
-  background-image: var(--bg-image);
-  background-size: 200px;
-  opacity: 0.8;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
   z-index: 0;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-color);
+  z-index: 1;
   transition: background-color 0.3s ease;
 }
 
 main {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 860px;
   margin: 0 auto;
   padding: 4rem 1.5rem 2rem;
@@ -114,6 +123,34 @@ main {
 }
 
 .theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px var(--card-shadow);
+}
+
+.mute-toggle {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: var(--toggle-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px var(--card-shadow);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mute-toggle:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 20px var(--card-shadow);
 }
