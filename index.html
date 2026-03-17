@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="bg"></div>
+    <video class="bg-video" id="bgVideo" autoplay loop muted playsinline>
+      <source src="Boku No Sensou.mp4" type="video/mp4" />
+    </video>
+    <div class="bg-overlay"></div>
 
+    <button class="mute-toggle" id="muteToggle" aria-label="Toggle mute">
+      🔇
+    </button>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
       🌙
     </button>
@@ -132,11 +138,18 @@
     <script>
       const toggle = document.getElementById("themeToggle");
       const html = document.documentElement;
+      const muteBtn = document.getElementById("muteToggle");
+      const video = document.getElementById("bgVideo");
 
       toggle.addEventListener("click", () => {
         const isDark = html.getAttribute("data-theme") === "dark";
         html.setAttribute("data-theme", isDark ? "light" : "dark");
         toggle.textContent = isDark ? "🌙" : "☀️";
+      });
+
+      muteBtn.addEventListener("click", () => {
+        video.muted = !video.muted;
+        muteBtn.textContent = video.muted ? "🔇" : "🔊";
       });
     </script>
   </body>
