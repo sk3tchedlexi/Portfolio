@@ -21,11 +21,15 @@
 
     <main>
       <section class="card hero-card">
-        <img
-          src="https://github.com/sk3tchedlexi.png"
-          alt="Lexi's GitHub profile picture"
-          class="avatar"
-        />
+        <div class="avatar-row">
+          <button class="hero-btn" id="heroMuteToggle">🔇 Mute</button>
+          <img
+            src="https://github.com/sk3tchedlexi.png"
+            alt="Lexi's GitHub profile picture"
+            class="avatar"
+          />
+          <button class="hero-btn" id="heroThemeToggle">🌙 Theme</button>
+        </div>
         <h1>Hi, I'm <span class="accent">Lexi</span></h1>
         <p class="tagline">
           Developer & IT enthusiast. Building things one commit at a time.
@@ -137,21 +141,32 @@
 
     <script>
       const toggle = document.getElementById("themeToggle");
+      const heroTheme = document.getElementById("heroThemeToggle");
       const html = document.documentElement;
       const muteBtn = document.getElementById("muteToggle");
+      const heroMute = document.getElementById("heroMuteToggle");
       const video = document.getElementById("bgVideo");
       video.volume = 0.5;
 
-      toggle.addEventListener("click", () => {
+      function toggleTheme() {
         const isDark = html.getAttribute("data-theme") === "dark";
         html.setAttribute("data-theme", isDark ? "light" : "dark");
-        toggle.textContent = isDark ? "🌙" : "☀️";
-      });
+        const icon = isDark ? "🌙" : "☀️";
+        toggle.textContent = icon;
+        heroTheme.textContent = isDark ? "🌙 Theme" : "☀️ Theme";
+      }
 
-      muteBtn.addEventListener("click", () => {
+      function toggleMute() {
         video.muted = !video.muted;
-        muteBtn.textContent = video.muted ? "🔇" : "🔊";
-      });
+        const icon = video.muted ? "🔇" : "🔊";
+        muteBtn.textContent = icon;
+        heroMute.textContent = video.muted ? "🔇 Mute" : "🔊 Unmute";
+      }
+
+      toggle.addEventListener("click", toggleTheme);
+      heroTheme.addEventListener("click", toggleTheme);
+      muteBtn.addEventListener("click", toggleMute);
+      heroMute.addEventListener("click", toggleMute);
     </script>
   </body>
 </html>
