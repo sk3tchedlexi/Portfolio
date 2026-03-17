@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,85 +7,137 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <nav>
-        <span class="nav-logo">Lexi</span>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div class="bg"></div>
 
-    <section id="hero">
-      <h1>Hi, I'm <span class="accent">Lexi</span></h1>
-      <p>
-        Aspiring developer and IT enthusiast. Building things one commit at a
-        time.
-      </p>
-      <a href="#projects" class="btn">View My Work</a>
-    </section>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      🌙
+    </button>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm an aspiring Computer Science professional with a passion for coding
-        and IT. I have experience with Python and HTML, and I'm constantly
-        expanding my skills and building new projects.
-      </p>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>Python</li>
-        <li>Git & GitHub</li>
-      </ul>
-    </section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Obsidian Vault Template</h3>
-          <p>A customisable template for organising notes in Obsidian.</p>
+    <main>
+      <section class="card hero-card">
+        <img
+          src="https://github.com/sk3tchedlexi.png"
+          alt="Lexi's GitHub profile picture"
+          class="avatar"
+        />
+        <h1>Hi, I'm <span class="accent">Lexi</span></h1>
+        <p class="tagline">
+          Developer & IT enthusiast. Building things one commit at a time.
+        </p>
+        <div class="hero-links">
+          <a href="https://github.com/sk3tchedlexi" target="_blank" class="btn"
+            >GitHub</a
+          >
+          <a href="mailto:contactme@sk3tched.online" class="btn btn-outline"
+            >Email</a
+          >
           <a
-            href="https://github.com/sk3tchedlexi/obsidian-vault-template"
+            href="https://guns.lol/sk3tch"
             target="_blank"
-            class="btn"
-            >View on GitHub</a
+            class="btn btn-outline"
+            >Guns.lol</a
           >
         </div>
-        <div class="project-card">
-          <h3>Portfolio Website</h3>
-          <p>This portfolio site, built with HTML and CSS.</p>
+      </section>
+
+      <section class="card">
+        <h2>About Me</h2>
+        <p>
+          I'm a Computer Science professional with a passion for coding and IT.
+          I'm constantly expanding my skills, building new projects, and looking
+          for opportunities in development and IT management.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <span class="skill-level professional">Professional</span>
+            <span class="skill-name">Linux CLI</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-level professional">Professional</span>
+            <span class="skill-name">HTML</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-level novice">Novice</span>
+            <span class="skill-name">Python</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-level novice">Novice</span>
+            <span class="skill-name">Java</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-level professional">Professional</span>
+            <span class="skill-name">Git & GitHub</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-level professional">Professional</span>
+            <span class="skill-name">CSS</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Obsidian Vault Template</h3>
+            <p>A customisable template for organising notes in Obsidian.</p>
+            <a
+              href="https://github.com/sk3tchedlexi"
+              target="_blank"
+              class="btn"
+              >View on GitHub</a
+            >
+          </div>
+          <div class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>This portfolio site, built with HTML and CSS.</p>
+            <a
+              href="https://github.com/sk3tchedlexi/Portfolio"
+              target="_blank"
+              class="btn"
+              >View on GitHub</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Contact</h2>
+        <p>Feel free to reach out or check out my work across the web!</p>
+        <div class="contact-links">
+          <a href="https://github.com/sk3tchedlexi" target="_blank" class="btn"
+            >GitHub</a
+          >
+          <a href="mailto:contactme@sk3tched.online" class="btn btn-outline"
+            >Email</a
+          >
           <a
-            href="https://github.com/sk3tchedlexi/Portfolio"
+            href="https://guns.lol/sk3tch"
             target="_blank"
-            class="btn"
-            >View on GitHub</a
+            class="btn btn-outline"
+            >Guns.lol</a
           >
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Feel free to reach out or check out my work!</p>
-      <ul class="contact-list">
-        <li>
-          <a href="https://github.com/sk3tchedlexi" target="_blank">GitHub</a>
-        </li>
-        <li><a href="mailto:contactme@sk3tched.online">Email</a></li>
-      </ul>
-    </section>
+      <footer>
+        <p>© 2026 Lexi. Built with HTML & CSS.</p>
+      </footer>
+    </main>
 
-    <footer>
-      <p>© 2026 Lexi. Built with HTML & CSS.</p>
-    </footer>
+    <script>
+      const toggle = document.getElementById("themeToggle");
+      const html = document.documentElement;
+
+      toggle.addEventListener("click", () => {
+        const isDark = html.getAttribute("data-theme") === "dark";
+        html.setAttribute("data-theme", isDark ? "light" : "dark");
+        toggle.textContent = isDark ? "🌙" : "☀️";
+      });
+    </script>
   </body>
 </html>
