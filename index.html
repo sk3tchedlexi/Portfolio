@@ -166,22 +166,24 @@
       html.setAttribute("data-theme", savedTheme);
       toggle.textContent = savedTheme === "dark" ? "🌙" : "☀️";
       heroTheme.textContent = savedTheme === "dark" ? "Theme 🌙" : "Theme ☀️";
-      entryScreen.style.background =
-        savedTheme === "dark" ? "#0d0d1a" : "#dbe9ff";
-      entryScreen.querySelector("p").style.color =
-        savedTheme === "dark" ? "#9999bb" : "#555577";
-      entryScreen.querySelector("h1").style.color =
-        savedTheme === "dark" ? "#ffffff" : "#1a1a2e";
 
       video.muted = savedMute;
       muteBtn.textContent = savedMute ? "🔇" : "🔊";
       heroMute.textContent = savedMute ? "🔇 Unmute" : "🔊 Mute";
 
-      entryBtn.addEventListener("click", () => {
+      function enterSite() {
         video.muted = savedMute;
         video.play();
         entryScreen.style.opacity = "0";
         setTimeout(() => (entryScreen.style.display = "none"), 600);
+      }
+
+      entryBtn.addEventListener("click", enterSite);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && entryScreen.style.display !== "none") {
+          enterSite();
+        }
       });
 
       function toggleTheme() {
