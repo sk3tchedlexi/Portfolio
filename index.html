@@ -161,7 +161,7 @@
       video.volume = 0.25;
 
       const savedTheme = localStorage.getItem("theme") || "light";
-      const savedMute = localStorage.getItem("muted") !== "true";
+      const savedMute = localStorage.getItem("muted") === "true";
 
       html.setAttribute("data-theme", savedTheme);
       toggle.textContent = savedTheme === "dark" ? "🌙" : "☀️";
@@ -189,8 +189,8 @@
         const newTheme = isDark ? "light" : "dark";
         html.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
-        toggle.textContent = isDark ? "🌙" : "☀️";
-        heroTheme.textContent = isDark ? "Theme ☀️" : "Theme 🌙";
+        toggle.textContent = newTheme === "dark" ? "🌙" : "☀️";
+        heroTheme.textContent = newTheme === "dark" ? "Theme 🌙" : "Theme ☀️";
       }
 
       function toggleMute() {
