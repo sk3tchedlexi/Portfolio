@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <video class="bg-video" id="bgVideo" autoplay loop muted playsinline>
+    <video class="bg-video" id="bgVideo" autoplay loop playsinline>
       <source src="Boku No Sensou.mp4" type="video/mp4" />
     </video>
     <div class="bg-overlay"></div>
@@ -140,6 +140,7 @@
       const html = document.documentElement;
       const muteBtn = document.getElementById("muteToggle");
       const video = document.getElementById("bgVideo");
+      video.volume = 0.5;
 
       toggle.addEventListener("click", () => {
         const isDark = html.getAttribute("data-theme") === "dark";
